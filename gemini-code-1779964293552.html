@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woo-Seok 🤍 Ji-Eun, Our Wedding Day 💍</title>
+    <style>
+        /* 기본 스타일 및 수채화 그리너리 배경 설정 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        body {
+            background-color: #f3f7f4; 
+            background-image: radial-gradient(#ffffff 40%, #e8f0eb 100%); 
+            color: #3d4a41;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* 모바일 컨테이너 */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background-color: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 10px 30px rgba(140, 160, 145, 0.15);
+            text-align: center;
+            padding-bottom: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* ✨ 부드러운 등장 애니메이션 (Fade-In Up) 설정 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 애니메이션을 적용할 클래스 */
+        .fade-in {
+            opacity: 0; 
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        /* 요소별 등장 시간 차이(딜레이) 부여 */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 1.0s; }
+        .delay-4 { animation-delay: 1.4s; }
+
+        /* 메인 상단 */
+        .main-header {
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, #eef5f1 0%, rgba(255,255,255,0) 100%);
+        }
+        .main-header h2 {
+            font-size: 1.1rem;
+            letter-spacing: 5px;
+            color: #6b8e76; 
+            margin-bottom: 20px;
+        }
+        /* 상단으로 올라간 영어 이름 스타일 */
+        .couple-name-en {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #5c7865;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+        /* 메인 이미지 대문 */
+        .main-image {
+            width: 90%;
+            height: 430px;
+            margin: 0 auto 25px;
+            border-radius: 8px;
+            background-image: url('사진18.jpg'); 
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+        }
+
+        /* 섹션 공통 */
+        section {
+            padding: 45px 20px;
+        }
+        .section-title {
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            color: #6b8e76;
+            margin-bottom: 25px;
+            position: relative;
+            font-weight: bold;
+        }
+        .section-title::after {
+            content: '🌸'; 
+            display: block;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        /* 모시는 글 */
+        .invitation-text {
+            line-height: 2.1;
+            font-size: 0.95rem;
+            color: #4a574e;
+            margin-bottom: 35px;
+        }
+        .names {
+            font-size: 1.05rem;
+            color: #2c3830;
+            line-height: 2.2;
+        }
+
+        /* 갤러리 */
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 10px;
+        }
+        .gallery-item {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            object-fit: cover; 
+            max-height: 500px;
+        }
+
+        /* 오시는 길 & 구글 지도 */
+        .info-box {
+            background-color: #fbfdfc;
+            border: 1px solid #e2ece6;
+            padding: 25px 20px;
+            border-radius: 8px;
+            margin: 0 10px;
+            line-height: 1.9;
+            font-size: 0.95rem;
+        }
+        .info-box .date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #5c7865;
+            margin-bottom: 12px;
+        }
+        .map-container {
+            margin-top: 20px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* 계좌번호 안내 섹션 */
+        .account-box {
+            background-color: #f7faf8;
+            border: 1px dashed #cedcd3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 10px 0;
+            text-align: left;
+        }
+        .account-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #5c7865;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .account-row {
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .account-row:last-child { border-bottom: none; }
+        .copy-btn {
+            background-color: #eef5f1;
+            border: 1px solid #cbdcd0;
+            color: #4a6352;
+            padding: 3px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* 팝업(모달) 스타일 */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(61, 74, 65, 0.4); 
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+        .modal-content {
+            width: 85%;
+            max-width: 360px;
+            background-color: #eef5f1; 
+            padding: 35px 25px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(44, 56, 48, 0.2);
+            border: 1px solid #cbdcd0;
+        }
+        .modal-text {
+            font-size: 0.95rem;
+            line-height: 2.2;
+            color: #3b473e; 
+            font-style: italic;
+            margin-bottom: 30px;
+            white-space: pre-line; 
+        }
+        .modal-close-btn {
+            width: 100%;
+            padding: 13px;
+            background-color: #5c7865;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(92, 120, 101, 0.2);
+            transition: background 0.2s;
+        }
+        .modal-close-btn:hover {
+            background-color: #4a6352;
+        }
+
+        footer { font-size: 0.8rem; color: #9aa89f; margin-top: 40px; }
+    </style>
+    <!-- 구글 폰트 연동 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 시 구절 팝업창 -->
+<div class="modal-overlay" id="weddingModal">
+    <div class="modal-content">
+        <div class="modal-text">"내 꿈은 당신과 나태하게 사는 것"
+​
+더 이상 치열하지 않아도 괜찮은 것.
+​
+키만 한 소파에 기대어 앉아 
+과자나 까먹으며
+TV 속 연예인에 깔깔댈 수 있는 것.
+​
+매일 손잡고 걸을 수 있는 여유로운 저녁이 있는 것.
+​
+지친 하루의 끝마다 돌아와 꼭 함께하는 것.
+​
+잠시 마주 앉아
+서로의 이야길 들어줄 수 있는 것.
+​
+내 꿈은 당신과 나태하게 사는 것.
+당신과 남은 생을 사는 것.</div>
+        <button class="modal-close-btn" onclick="closeModal()">우리 결혼합니다 💍</button>
+    </div>
+</div>
+
+<div class="container">
+    
+    <!-- 메인 섹션 -->
+    <header class="main-header">
+        <h2 class="fade-in delay-1">WE ARE GETTING MARRIED</h2>
+        <div class="couple-name-en fade-in delay-2">Woo-Seok & Ji-Eun</div>
+        <div class="main-image fade-in delay-3"></div>
+        <p class="fade-in delay-4" style="color: #6b8e76; letter-spacing: 1px; font-weight: bold;">2030. 05. 11. SAT PM 12:00</p>
+    </header>
+
+    <!-- 모시는 글 -->
+    <section class="fade-in delay-4">
+        <div class="section-title">INVITATION</div>
+        <p class="invitation-text">
+            서로가 마주보며 다져온 사랑을<br>
+            이제 함께 한 곳을 바라보며 걸어가고자 합니다.<br>
+            저희의 뜻깊은 출발의 자리에 오셔서<br>
+            따뜻한 격려와 축복으로 빛내주시기 바랍니다.
+        </p>
+        <div class="names">
+            <strong>부친 · 모친</strong> 의 장남 <strong>우석</strong><br>
+            <strong>부친 · 모친</strong> 의 차녀 <strong>지은</strong>
+        </div>
+    </section>
+
+    <!-- 사진첩 (갤러리) -->
+    <section style="background-color: #fafdfb;">
+        <div class="section-title">GALLERY</div>
+        <div class="gallery-grid">
+            <img src="사진14.jpg" alt="웨딩사진 1" class="gallery-item">
+            <img src="사진15.jpg" alt="웨딩사진 2" class="gallery-item">
+            <!-- 마지막 사진이 .png 확장자로 정상 적용되었습니다 -->
+            <img src="사진2.png" alt="웨딩사진 3" class="gallery-item">
+        </div>
+    </section>
+
+    <!-- 일시 및 장소 -->
+    <section>
+        <div class="section-title">DIRECTIONS</div>
+        <div class="info-box">
+            <div class="date">2030년 5월 11일 토요일 낮 12시</div>
+            <p><strong>신라스테이 마포 (3층 미팅룸/연회장)</strong></p>
+            <p style="color: #666; font-size: 0.85rem; margin-top: 3px;">서울시 마포구 마포대로 83 (공덕동)</p>
+            
+            <!-- 구글 지도 -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.272186717544!2d126.9472622763737!3d37.54865192515091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98980b332769%3A0xc6cb5a68c07e0b5d!2z7Iug65287Iqk7YW07J20IOuvisible!5e0!3m2!1sko!2skr!4v1710000000000!5m2!1sko!2skr" 
+                        width="100%" height="240" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <!-- 축의금 계좌번호 -->
+        <div class="account-box">
+            <div class="account-title">🌸 마음 전하실 곳</div>
+            <div class="account-row">
+                <span>신랑 우석 계좌 (하나은행)</span>
+                <div>
+                    <span style="font-size:0.85rem; color:#666;">123-456789-01207</span>
+                    <button class="copy-btn" onclick="copyAccount('123-456789-01207')">복사</button>
+                </div>
+            </div>
+            <div class="account-row">
+                <span>신부 지은 계좌 (하나은행)</span>
+                <div>
+                    <span style="font-size:0.85rem; color:#666;">987-654321-99907</span>
+                    <button class="copy-btn" onclick="copyAccount('987-654321-99907')">복사</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2030 Woo-Seok & Ji-Eun. All rights reserved.
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById('weddingModal').style.display = 'flex';
+
+    function closeModal() {
+        const modal = document.getElementById('weddingModal');
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 400); 
+    }
+
+    function copyAccount(accountNumber) {
+        navigator.clipboard.writeText(accountNumber).then(() => {
+            alert('계좌번호가 복사되었습니다. 마음을 전해주셔서 감사합니다. ✨');
+        }).catch(err => {
+            alert('복사에 실패했습니다. 번호를 직접 확인해 주세요.');
+        });
+    }
+</script>
+
+</body>
+</html>
